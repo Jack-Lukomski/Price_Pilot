@@ -23,5 +23,11 @@ class StockInfo:
         self.stock_data = StockInfo.prv_get_stock_data(self.ticker_symbol)
         return self.stock_data.history(period=self.time_period, interval=self.data_interval)
     
-    def get_stock_ticker(self):
+    def get_ticker_symbol(self):
         return self.ticker_symbol
+    
+    def get_time_period(self):
+        return self.time_period
+    
+    def get_data_interval(self):
+        return self.data_interval

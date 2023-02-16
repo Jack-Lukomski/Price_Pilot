@@ -2,11 +2,17 @@ from StockInfo import StockInfo
 from GenCandlePlot import GenCandlePlot
 
 def main():
-    testStockAAPL = StockInfo("NYMT", "6mo", "1d")
+    testStockAAPL = StockInfo("TSLA", "6mo", "1d")
 
     data = testStockAAPL.get_data_over_period()
 
-    GenCandlePlot(data, testStockAAPL).gen_candle_plot()
+    test = data['Close'].reset_index().drop('Date', axis=1).to_string()
+
+    with open("..//C_Files//PyOutputTempFiles//op.txt", "w") as stockDataFile:
+        for currEntrie in test:
+            stockDataFile.writelines(currEntrie)
+ 
+    #GenCandlePlot(data, testStockAAPL).gen_candle_plot()
     
 if __name__ == "__main__":
     main()

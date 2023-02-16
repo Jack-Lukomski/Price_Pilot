@@ -28,9 +28,9 @@ class GenCandlePlot:
         ax.xaxis_date()
 
         # Set the title and axis labels
-        plt.title(self.stock_obj.get_stock_ticker() + " Candlestick Chart")
+        plt.title(self.stock_obj.get_ticker_symbol() + " " + self.stock_obj.get_time_period() + "-" + self.stock_obj.get_data_interval() + " Candlestick Chart")
         plt.xlabel("Date")
         plt.ylabel("Price")
 
         # Save the figure as a PNG file
-        plt.savefig(self.stock_obj.get_stock_ticker() + "_candlestick.png")
+        plt.savefig(self.stock_obj.get_ticker_symbol() + "_candlestick.png")
