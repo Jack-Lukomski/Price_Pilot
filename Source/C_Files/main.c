@@ -1,6 +1,15 @@
 #include "getStockDataArr.h"
 
-void main(void)
+int main(void)
 {
-    pGetStockDataArr_GetStockData();
+    String test;
+    float * testFlo;
+    test = pGetStockDataArr_GetStockData();
+    testFlo = xGetStockDataArr_GetStockDataArray(test);
+    printf("%f", testFlo[0]);
+
+    free(test);
+    free(testFlo);
+
+    return 0;
 }

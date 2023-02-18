@@ -6,11 +6,12 @@ def main():
 
     data = testStockAAPL.get_data_over_period()
 
-    test = data['Close'].reset_index().drop('Date', axis=1).to_string()
+    test = data['Close'].reset_index().drop('Date', axis=1).to_string(index=False)
+    test = '\n'.join(test.split('\n')[1:]) 
 
     with open("..//C_Files//PyOutputTempFiles//op.txt", "w") as stockDataFile:
         for currEntrie in test:
-            stockDataFile.writelines(currEntrie)
+                stockDataFile.writelines(currEntrie)
  
     #GenCandlePlot(data, testStockAAPL).gen_candle_plot()
     
