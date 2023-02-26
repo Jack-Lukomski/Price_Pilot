@@ -1,4 +1,5 @@
 #include "getStockDataArr.hpp"
+#include "DataAnaliticsCppFiles/dataAnalisis.hpp"
 
 int main(void)
 {
@@ -11,6 +12,8 @@ int main(void)
     }
 
     std::cout << std::endl;
+
+    StockDataAnalysis::Get_x_x_CrossoverData(5, 8);
 
     return 0;
 }
