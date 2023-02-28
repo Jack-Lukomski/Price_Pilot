@@ -13,7 +13,7 @@ typedef std::vector<float> StockDataFloArr;
 namespace StockDataAnalysis
 {
     x_x_CrossoverData Get_x_x_CrossoverData(uint8_t firstNumber, uint8_t secondNumber);
-    static StockDataFloArr Get_x_CrossoverData(uint8_t dayNumber, StockDataFloArr stockDataFlo);
+    static StockDataFloArr Get_x_CrossoverData(uint8_t dayNumber, StockDataFloArr & stockDataFlo);
 }
 
 #endif /* DATA_ANALISIS_HPP */

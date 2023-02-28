@@ -19,7 +19,7 @@ namespace StockDataAnalysis
         return retValFloArr;
     }
 
-    static StockDataFloArr Get_x_CrossoverData(uint8_t dayNumber, StockDataFloArr stockDataFlo)
+    static StockDataFloArr Get_x_CrossoverData(uint8_t dayNumber, StockDataFloArr & stockDataFlo)
     {
         StockDataFloArr dataRetVal;
         uint16_t numEvenDiv = ( stockDataFlo.size() - ( stockDataFlo.size() % 5 ) ) / 5;
@@ -28,18 +28,20 @@ namespace StockDataAnalysis
         float currSubChunkSum;
         float currSubChunkMean;
 
-        for(uint16_t currCrosChunk = 0; currCrosChunk < totalNumEvenIndexes; currCrosChunk+=dayNumber)
+        uint16_t currCrosChunk = 0;
+        uint16_t currSubChunk;
+
+        for(currCrosChunk = 0; currCrosChunk < totalNumEvenIndexes; currCrosChunk+=dayNumber)
         {
             currSubChunkSum = 0;
             currSubChunkMean = 0;
-            for(uint16_t currSubChunk = currCrosChunk; currCrosChunk < dayNumber+currCrosChunk; currSubChunk++)
+            for(currSubChunk = currCrosChunk; currSubChunk < dayNumber+currCrosChunk; currSubChunk++)
             {
                 currSubChunkSum = currSubChunkSum + stockDataFlo[currSubChunk];
             }
-            currSubChunkMean = currSubChunkMean / dayNumber;
+            currSubChunkMean = currSubChunkSum / dayNumber;
             dataRetVal.push_back(currSubChunkMean);
         }
-
         return dataRetVal;
     }
 }
