@@ -20,6 +20,6 @@ To use this trading notification bot, follow these steps:
 5. Run the compiled executable file.
 
 ## Contributors
-- Jack Lukomski jack.lukomski@gmail.com
+- Jack Lukomski jtlukomski@gmail.com
 
 Please note that this is a personal project and is not intended for production use. Use at your own risk.
