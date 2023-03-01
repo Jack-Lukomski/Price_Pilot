@@ -1,19 +1,15 @@
-#include "getStockDataArr.hpp"
-#include "DataAnaliticsCppFiles/dataAnalisis.hpp"
+#include "StockData.hpp"
+#include "DataAnaliticsCppFiles/DataAnalisis.hpp"
+
+filePath_str pyTempFilePath = "C:/Users/jtluk/GitHub/Trading_Notification_Bot/Source/C_Files/PyOutputTempFiles/op.txt";
+
+using std::cout;
+using std::endl;
 
 int main(void)
 {
-    // std::string testStr = GenStockDataArr::getStockStr();
-    // std::vector<float> testFlo = GenStockDataArr::getStockFloat(testStr);
-
-    // for(float curr : testFlo)
-    // {
-    //     std::cout << curr << "\n";
-    // }
-
-    // std::cout << std::endl;
-
-    StockDataAnalysis::Get_x_x_CrossoverData(5, 8);
-
+    StockData currStockData(pyTempFilePath);
+    DataAnalisis dataAnalisis(currStockData);
+    
     return 0;
 }
