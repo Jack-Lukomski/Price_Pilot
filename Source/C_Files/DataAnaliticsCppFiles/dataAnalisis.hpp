@@ -1,6 +1,6 @@
 #ifndef DATA_ANALISIS_HPP
 #define DATA_ANALISIS_HPP
-#include "../StockData.hpp"
+#include "../StockDataCppFiles/StockData.hpp"
 #include <vector>
 #include <string>
 #include <iostream>
