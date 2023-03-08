@@ -7,8 +7,14 @@
 #include <fstream>
 #include <sstream>
 
-typedef std::vector<std::vector<float>> x_x_CrossoverData;
 typedef std::vector<float> StockDataFloArr;
+
+typedef struct x_x_CrossoverData
+{
+    StockDataFloArr firstNumData;
+    StockDataFloArr secondNumData;
+}x_x_CrossoverData;
+
 
 class DataAnalisis
 {

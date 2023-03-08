@@ -2,7 +2,7 @@ from StockInfo import StockInfo
 from GenCandlePlot import GenCandlePlot
 
 def main():
-    testStockAAPL = StockInfo("TSLA", "6mo", "1d")
+    testStockAAPL = StockInfo("AAPL", "6mo", "1d")
 
     data = testStockAAPL.get_data_over_period()
 

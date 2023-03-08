@@ -9,17 +9,12 @@ DataAnalisis::DataAnalisis(StockData & data)
 
 x_x_CrossoverData DataAnalisis::Get_x_x_CrossoverData(uint8_t firstNumber, uint8_t secondNumber)
 {
-    x_x_CrossoverData retValFloArr;
+    x_x_CrossoverData retVal;
 
-    StockDataFloArr test = Get_x_CrossoverData(5);
+    retVal.firstNumData = Get_x_CrossoverData(firstNumber);
+    retVal.secondNumData = Get_x_CrossoverData(secondNumber);
 
-    for(float el : test)
-    {
-        std::cout << el << "\n";
-    }
-    std::cout << std::endl;
-
-    return retValFloArr;
+    return retVal;
 }
 
 StockDataFloArr DataAnalisis::Get_x_CrossoverData(uint8_t dayNumber)

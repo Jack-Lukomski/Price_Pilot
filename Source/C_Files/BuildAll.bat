@@ -1,0 +1,1 @@
+g++ MainCppFile/main.cpp StockDataCppFiles/StockData.cpp DataAnaliticsCppFiles/DataAnalisis.cpp -o Build/build.exe

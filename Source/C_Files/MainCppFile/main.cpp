@@ -10,6 +10,20 @@ int main(void)
 {
     StockData currStockData(pyTempFilePath);
     DataAnalisis dataAnalisis(currStockData);
+
+    x_x_CrossoverData test = dataAnalisis.Get_x_x_CrossoverData(5, 8);
+
+    cout << "5 crossover data" << endl;
+    for(float curr : test.firstNumData)
+    {
+        cout << curr << endl;
+    }
+
+    cout << "8 crossover data" << endl;
+    for(float curr : test.secondNumData)
+    {
+        cout << curr << endl;
+    }
     
     return 0;
 }
