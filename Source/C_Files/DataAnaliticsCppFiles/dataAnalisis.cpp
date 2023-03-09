@@ -5,14 +5,31 @@ DataAnalisis::DataAnalisis(){}
 DataAnalisis::DataAnalisis(StockData & data)
 {
     stockData = data;
+    firstCrossNum = 0;
+    secondCrossNum = 0;
 }
 
-x_x_CrossoverData DataAnalisis::Get_x_x_CrossoverData(uint8_t firstNumber, uint8_t secondNumber)
+void DataAnalisis::setFirstCrossoverNum(uint8_t number)
 {
+    firstCrossNum = number;  
+}
+
+void DataAnalisis::setSecondCrossoverNum(uint8_t number)
+{
+    secondCrossNum = number;
+}
+
+x_x_CrossoverData DataAnalisis::Get_x_x_CrossoverData(void)
+{
+    if(firstCrossNum == 0 || secondCrossNum == 0)
+    {
+        throw std::runtime_error("No x_x crossover data provided!");
+    }
+
     x_x_CrossoverData retVal;
 
-    retVal.firstNumData = Get_x_CrossoverData(firstNumber);
-    retVal.secondNumData = Get_x_CrossoverData(secondNumber);
+    retVal.firstNumData = Get_x_CrossoverData(firstCrossNum);
+    retVal.secondNumData = Get_x_CrossoverData(secondCrossNum);
 
     return retVal;
 }

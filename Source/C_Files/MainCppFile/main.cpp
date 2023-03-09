@@ -1,5 +1,6 @@
 #include "../StockDataCppFiles/StockData.hpp"
 #include "../DataAnaliticsCppFiles/DataAnalisis.hpp"
+#include "../GenCSVFile/GenCSVFile.hpp"
 
 filePath_str pyTempFilePath = "C:/Users/jtluk/GitHub/Trading_Notification_Bot/Source/C_Files/PyOutputTempFiles/op.txt";
 
@@ -11,19 +12,26 @@ int main(void)
     StockData currStockData(pyTempFilePath);
     DataAnalisis dataAnalisis(currStockData);
 
-    x_x_CrossoverData test = dataAnalisis.Get_x_x_CrossoverData(5, 8);
+    dataAnalisis.setFirstCrossoverNum(5);
+    dataAnalisis.setSecondCrossoverNum(8);
+    
+    GenCsvFile genoratedFile(dataAnalisis);
 
-    cout << "5 crossover data" << endl;
-    for(float curr : test.firstNumData)
-    {
-        cout << curr << endl;
-    }
+    genoratedFile.ComplieDataToCsv();
 
-    cout << "8 crossover data" << endl;
-    for(float curr : test.secondNumData)
-    {
-        cout << curr << endl;
-    }
+    cout << currStockData.getStockStr() << endl;
+
+    // cout << "5 crossover data" << endl;
+    // for(float curr : test.firstNumData)
+    // {
+    //     cout << curr << endl;
+    // }
+
+    // cout << "8 crossover data" << endl;
+    // for(float curr : test.secondNumData)
+    // {
+    //     cout << curr << endl;
+    // }
     
     return 0;
 }

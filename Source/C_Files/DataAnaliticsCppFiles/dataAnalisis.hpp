@@ -16,14 +16,18 @@ typedef struct x_x_CrossoverData
 }x_x_CrossoverData;
 
 
-class DataAnalisis
+class DataAnalisis : public StockData
 {
     private:
         StockData stockData;
+        uint8_t firstCrossNum;
+        uint8_t secondCrossNum;
     public:
         DataAnalisis();
         DataAnalisis(StockData & data);
-        x_x_CrossoverData Get_x_x_CrossoverData(uint8_t firstNumber, uint8_t secondNumber);
+        void setFirstCrossoverNum(uint8_t number);
+        void setSecondCrossoverNum(uint8_t number);
+        x_x_CrossoverData Get_x_x_CrossoverData(void);
         StockDataFloArr Get_x_CrossoverData(uint8_t dayNumber);
 
         /* Put more DataAnalysis tools here */
