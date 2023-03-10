@@ -19,19 +19,20 @@ int main(void)
 
     genoratedFile.ComplieDataToCsv();
 
-    cout << currStockData.getStockStr() << endl;
 
-    // cout << "5 crossover data" << endl;
-    // for(float curr : test.firstNumData)
-    // {
-    //     cout << curr << endl;
-    // }
+    x_x_CrossoverData test = dataAnalisis.Get_x_x_CrossoverData();
 
-    // cout << "8 crossover data" << endl;
-    // for(float curr : test.secondNumData)
-    // {
-    //     cout << curr << endl;
-    // }
+    cout << "5 crossover data" << endl;
+    for(float curr : test.firstNumData)
+    {
+        cout << curr << endl;
+    }
+
+    cout << "8 crossover data" << endl;
+    for(float curr : test.secondNumData)
+    {
+        cout << curr << endl;
+    }
     
     return 0;
 }

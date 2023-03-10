@@ -16,6 +16,8 @@ class StockData
 {
 private:
     filePath_str filePath;
+    stockData_str stockStr;
+    void PrvReadOpTxt(void);
 public:
     StockData();
     StockData(filePath_str file);

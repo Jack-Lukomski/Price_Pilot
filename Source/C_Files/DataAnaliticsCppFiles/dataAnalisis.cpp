@@ -2,12 +2,7 @@
 
 DataAnalisis::DataAnalisis(){}
 
-DataAnalisis::DataAnalisis(StockData & data)
-{
-    stockData = data;
-    firstCrossNum = 0;
-    secondCrossNum = 0;
-}
+DataAnalisis::DataAnalisis(StockData & data) : stockData(data), firstCrossNum(0), secondCrossNum(0), StockData(data) {}
 
 void DataAnalisis::setFirstCrossoverNum(uint8_t number)
 {

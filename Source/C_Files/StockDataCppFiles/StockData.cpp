@@ -2,9 +2,9 @@
 
 StockData::StockData(){}
 
-StockData::StockData(filePath_str file)
+StockData::StockData(filePath_str file) : stockStr(""), filePath(file) 
 {
-    filePath = file;
+    PrvReadOpTxt();
 }
 
 filePath_str StockData::getFilePath(void)
@@ -17,7 +17,7 @@ void StockData::setFilePath(filePath_str file)
     filePath = file;
 }
 
-stockData_str StockData::getStockStr(void)
+void StockData::PrvReadOpTxt(void)
 {
     std::ifstream pyOpFile(filePath);
 
@@ -29,12 +29,19 @@ stockData_str StockData::getStockStr(void)
     std::stringstream buf;
     buf << pyOpFile.rdbuf();
 
-    return buf.str();
+    pyOpFile.close();
+
+    stockStr.assign(buf.str());   
+}
+
+stockData_str StockData::getStockStr(void)
+{
+    return stockStr;
 }
 
 stockData_floatVector StockData::getStockFloatVector(void)
 {
-    stockData_str stockDataStr = getStockStr();
+    stockData_str stockDataStr = stockStr;
     stockData_floatVector floatArr_RetVal;
     std::istringstream iss(stockDataStr);
     std::string token;

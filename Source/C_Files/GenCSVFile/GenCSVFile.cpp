@@ -2,23 +2,27 @@
 
 GenCsvFile::GenCsvFile(){}
 
-GenCsvFile::GenCsvFile(DataAnalisis & data)
-{
-    outputData = data;
-}
+GenCsvFile::GenCsvFile(DataAnalisis & data) : outputData(data) {}
 
 void GenCsvFile::ComplieDataToCsv(void)
 {
     std::ofstream outputFile("tempCsv.csv");
 
-    //outputFile << "fr, cap, ngl" << std::endl;
+    for(uint16_t currIndex = 0; currIndex < outputData.getStockFloatVector().size(); currIndex++)
+    {
+        outputFile << outputData.getStockFloatVector()[currIndex];
 
-    // for(uint16_t currIndex = 0; currIndex < outputData.getStockFloatVector().size(); currIndex++)
-    // {
-    //     outputFile << outputData.getStockFloatVector()[currIndex] << std::endl;
-    //             //    << outputData.Get_x_x_CrossoverData().firstNumData[currIndex] << ", "
-    //             //    << outputData.Get_x_x_CrossoverData().secondNumData[currIndex] << std::endl;
-    // }
+        if(currIndex < outputData.Get_x_x_CrossoverData().firstNumData.size())
+        {
+            outputFile << "," << outputData.Get_x_x_CrossoverData().firstNumData[currIndex];
+        }
+
+        if(currIndex < outputData.Get_x_x_CrossoverData().secondNumData.size())
+        {
+            outputFile << "," << outputData.Get_x_x_CrossoverData().secondNumData[currIndex];
+        }
+        outputFile << std::endl;
+    }
 
     outputFile.close();
 }
