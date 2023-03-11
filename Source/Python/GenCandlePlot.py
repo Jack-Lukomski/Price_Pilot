@@ -21,6 +21,8 @@ class GenCandlePlot:
         ax = fig.add_subplot(1,1,1)
         ax.set_facecolor('#0ab0f2')
 
+        #ax.plot([1,2, 3, 4, 5, 6, 7,], [5, 3, 6 , 1, 4 , 6 ,3])
+
         # Plot the candlestick chart
         candlestick_ohlc(ax, self.stockDataFrame_obj[['Open', 'High', 'Low', 'Close']].reset_index().values, width=0.6, colorup='g', colordown='r')
 

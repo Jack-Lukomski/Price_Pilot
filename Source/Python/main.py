@@ -1,5 +1,6 @@
 from StockInfo import StockInfo
 from GenCandlePlot import GenCandlePlot
+import GenStockChart
 
 def main():
     testStockAAPL = StockInfo("AAPL", "6mo", "1d")
@@ -14,6 +15,8 @@ def main():
                 stockDataFile.writelines(currEntrie)
  
     #GenCandlePlot(data, testStockAAPL).gen_candle_plot()
+    GenStockChart.genorate_chart("ds", "ds")
+
     
 if __name__ == "__main__":
     main()
