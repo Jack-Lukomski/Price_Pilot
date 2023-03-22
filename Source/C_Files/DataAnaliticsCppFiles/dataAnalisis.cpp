@@ -4,20 +4,24 @@ DataAnalisis::DataAnalisis(){}
 
 DataAnalisis::DataAnalisis(StockData & data) : stockData(data), firstCrossNum(0), secondCrossNum(0), StockData(data) {}
 
-void DataAnalisis::setFirstCrossoverNum(uint8_t number)
-{
+void DataAnalisis::setFirstCrossoverNum(uint8_t number) {
     firstCrossNum = number;  
 }
 
-void DataAnalisis::setSecondCrossoverNum(uint8_t number)
-{
+void DataAnalisis::setSecondCrossoverNum(uint8_t number) {
     secondCrossNum = number;
 }
 
-x_x_CrossoverData DataAnalisis::Get_x_x_CrossoverData(void)
-{
-    if(firstCrossNum == 0 || secondCrossNum == 0)
-    {
+uint8_t DataAnalisis::getFirstCrossoverNum(void) {
+    return firstCrossNum;
+}
+
+uint8_t DataAnalisis::getSecondCrossoverNum(void) {
+    return secondCrossNum;
+}
+
+x_x_CrossoverData DataAnalisis::Get_x_x_CrossoverData(void) {
+    if(firstCrossNum == 0 || secondCrossNum == 0) {
         throw std::runtime_error("No x_x crossover data provided!");
     }
 
@@ -29,8 +33,7 @@ x_x_CrossoverData DataAnalisis::Get_x_x_CrossoverData(void)
     return retVal;
 }
 
-StockDataFloArr DataAnalisis::Get_x_CrossoverData(uint8_t dayNumber)
-{
+StockDataFloArr DataAnalisis::Get_x_CrossoverData(uint8_t dayNumber) {
     StockDataFloArr dataRetVal;
     StockDataFloArr stockDataFlo = stockData.getStockFloatVector();
     uint16_t numEvenDiv = ( stockDataFlo.size() - ( stockDataFlo.size() % 5 ) ) / 5;
@@ -42,14 +45,14 @@ StockDataFloArr DataAnalisis::Get_x_CrossoverData(uint8_t dayNumber)
     uint16_t currCrosChunk = 0;
     uint16_t currSubChunk;
 
-    for(currCrosChunk = 0; currCrosChunk < totalNumEvenIndexes; currCrosChunk+=dayNumber)
-    {
+    for(currCrosChunk = 0; currCrosChunk < totalNumEvenIndexes; currCrosChunk+=dayNumber) {
         currSubChunkSum = 0;
         currSubChunkMean = 0;
-        for(currSubChunk = currCrosChunk; currSubChunk < dayNumber+currCrosChunk; currSubChunk++)
-        {
+
+        for(currSubChunk = currCrosChunk; currSubChunk < dayNumber+currCrosChunk; currSubChunk++) {
             currSubChunkSum = currSubChunkSum + stockDataFlo[currSubChunk];
         }
+        
         currSubChunkMean = currSubChunkSum / dayNumber;
         dataRetVal.push_back(currSubChunkMean);
     }

@@ -4,32 +4,26 @@ GenCsvFile::GenCsvFile(){}
 
 GenCsvFile::GenCsvFile(DataAnalisis & data) : outputData(data) {}
 
-void GenCsvFile::ComplieDataToCsv(void)
-{
+void GenCsvFile::ComplieDataToCsv(void) {
     std::ofstream outputFile("tempCsv.csv");
 
     outputFile << "col1,col2,col3" << std::endl;
 
-    for(uint16_t currIndex = 0; currIndex < outputData.getStockFloatVector().size(); currIndex++)
-    {
+    for(uint16_t currIndex = 0; currIndex < outputData.getStockFloatVector().size(); currIndex++) {
         outputFile << outputData.getStockFloatVector()[currIndex];
 
-        if(currIndex < outputData.Get_x_x_CrossoverData().firstNumData.size())
-        {
-            outputFile << "," << outputData.Get_x_x_CrossoverData().firstNumData[currIndex];
+        if(currIndex % outputData.getFirstCrossoverNum() == 0) {
+            outputFile << "," << outputData.Get_x_x_CrossoverData().firstNumData[currIndex/outputData.getFirstCrossoverNum()];
         }
-        else 
-        {
-            outputFile << "," << 0;
+        else {
+            outputFile << ",";
         }
 
-        if(currIndex < outputData.Get_x_x_CrossoverData().secondNumData.size())
-        {
-            outputFile << "," << outputData.Get_x_x_CrossoverData().secondNumData[currIndex];
+        if(currIndex % outputData.getSecondCrossoverNum() == 0) {
+            outputFile << "," << outputData.Get_x_x_CrossoverData().secondNumData[currIndex/outputData.getSecondCrossoverNum()];
         }
-        else 
-        {
-            outputFile << "," << 0;
+        else {
+            outputFile << ",";
         }
         outputFile << std::endl;
     }

@@ -12,8 +12,7 @@ typedef std::string stockData_str;
 typedef std::vector<float> stockData_floatVector;
 
 
-class StockData 
-{
+class StockData {
 private:
     filePath_str filePath;
     stockData_str stockStr;

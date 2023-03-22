@@ -9,8 +9,7 @@
 #include <fstream>
 #include <sstream>
 
-class GenCsvFile
-{
+class GenCsvFile {
     private:
         DataAnalisis outputData;
     public:
