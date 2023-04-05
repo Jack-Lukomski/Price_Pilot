@@ -3,7 +3,7 @@ from GenCandlePlot import GenCandlePlot
 import GenStockChart
 
 def main():
-    testStockAAPL = StockInfo("AAPL", "6mo", "1d")
+    testStockAAPL = StockInfo("DE", "6mo", "1d")
 
     data = testStockAAPL.get_data_over_period()
 
@@ -14,8 +14,7 @@ def main():
         for currEntrie in test:
                 stockDataFile.writelines(currEntrie)
  
-    #GenCandlePlot(data, testStockAAPL).gen_candle_plot()
-    GenStockChart.genorate_chart("ds", "ds")
+    GenStockChart.genorate_chart(testStockAAPL.get_ticker_symbol(), testStockAAPL.get_time_period() + "-" + testStockAAPL.get_data_interval())
 
     
 if __name__ == "__main__":
