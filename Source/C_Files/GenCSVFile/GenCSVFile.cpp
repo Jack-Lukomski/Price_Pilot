@@ -2,7 +2,7 @@
 
 GenCsvFile::GenCsvFile(){}
 
-GenCsvFile::GenCsvFile(DataAnalisis & data) : outputData(data) {}
+GenCsvFile::GenCsvFile(CrossOver & data) : outputData(data) {}
 
 void GenCsvFile::ComplieDataToCsv(void) {
     std::ofstream outputFile("tempCsv.csv");

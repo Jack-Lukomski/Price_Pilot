@@ -1,5 +1,5 @@
-#ifndef DATA_ANALISIS_HPP
-#define DATA_ANALISIS_HPP
+#ifndef CROSS_OVER_HPP
+#define CROSS_OVER_HPP
 #include "../StockDataCppFiles/StockData.hpp"
 #include <vector>
 #include <string>
@@ -15,14 +15,14 @@ typedef struct x_x_CrossoverData {
 }x_x_CrossoverData;
 
 
-class DataAnalisis : public StockData {
+class CrossOver : public StockData {
     private:
         StockData stockData;
         uint8_t firstCrossNum;
         uint8_t secondCrossNum;
     public:
-        DataAnalisis();
-        DataAnalisis(StockData & data);
+        CrossOver();
+        CrossOver(StockData & data);
         void setFirstCrossoverNum(uint8_t number);
         void setSecondCrossoverNum(uint8_t number);
         uint8_t getFirstCrossoverNum(void);
@@ -33,4 +33,4 @@ class DataAnalisis : public StockData {
         /* Put more DataAnalysis tools here */
 };
 
-#endif /* DATA_ANALISIS_HPP */
+#endif /* CROSS_OVER_HPP */

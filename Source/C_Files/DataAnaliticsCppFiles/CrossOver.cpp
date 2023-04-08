@@ -1,26 +1,26 @@
-#include "DataAnalisis.hpp"
+#include "CrossOver.hpp"
 
-DataAnalisis::DataAnalisis(){}
+CrossOver::CrossOver(){}
 
-DataAnalisis::DataAnalisis(StockData & data) : stockData(data), firstCrossNum(0), secondCrossNum(0), StockData(data) {}
+CrossOver::CrossOver(StockData & data) : stockData(data), firstCrossNum(0), secondCrossNum(0), StockData(data) {}
 
-void DataAnalisis::setFirstCrossoverNum(uint8_t number) {
+void CrossOver::setFirstCrossoverNum(uint8_t number) {
     firstCrossNum = number;  
 }
 
-void DataAnalisis::setSecondCrossoverNum(uint8_t number) {
+void CrossOver::setSecondCrossoverNum(uint8_t number) {
     secondCrossNum = number;
 }
 
-uint8_t DataAnalisis::getFirstCrossoverNum(void) {
+uint8_t CrossOver::getFirstCrossoverNum(void) {
     return firstCrossNum;
 }
 
-uint8_t DataAnalisis::getSecondCrossoverNum(void) {
+uint8_t CrossOver::getSecondCrossoverNum(void) {
     return secondCrossNum;
 }
 
-x_x_CrossoverData DataAnalisis::Get_x_x_CrossoverData(void) {
+x_x_CrossoverData CrossOver::Get_x_x_CrossoverData(void) {
     if(firstCrossNum == 0 || secondCrossNum == 0) {
         throw std::runtime_error("No x_x crossover data provided!");
     }
@@ -33,11 +33,11 @@ x_x_CrossoverData DataAnalisis::Get_x_x_CrossoverData(void) {
     return retVal;
 }
 
-StockDataFloArr DataAnalisis::Get_x_CrossoverData(uint8_t dayNumber) {
+StockDataFloArr CrossOver::Get_x_CrossoverData(uint8_t dayNumber) {
     StockDataFloArr dataRetVal;
     StockDataFloArr stockDataFlo = stockData.getStockFloatVector();
-    uint16_t numEvenDiv = ( stockDataFlo.size() - ( stockDataFlo.size() % 5 ) ) / 5;
-    uint16_t totalNumEvenIndexes = ( stockDataFlo.size() - ( stockDataFlo.size() % 5 ) );
+    uint16_t numEvenDiv = ( stockDataFlo.size() - ( stockDataFlo.size() % dayNumber) ) / dayNumber;
+    uint16_t totalNumEvenIndexes = ( stockDataFlo.size() - ( stockDataFlo.size() % dayNumber ) );
 
     float currSubChunkSum;
     float currSubChunkMean;

@@ -11,10 +11,10 @@
 
 class GenCsvFile {
     private:
-        DataAnalisis outputData;
+        CrossOver outputData;
     public:
         GenCsvFile();
-        GenCsvFile(DataAnalisis & data);
+        GenCsvFile(CrossOver & data);
         void ComplieDataToCsv(void);
 };
 

@@ -43,5 +43,5 @@ async def stockdata(ctx, *args):
 async def hello(ctx):
     await ctx.send("Hello, World")
 
-TOKEN = 'MTA5Mjk2OTk0NzQ0Mjk3NDc2MA.GPvbwZ.nJOYe0CIq1YdeHHX6FbqVNHPeUpfcXef7uAhpk'
+TOKEN = 'MTA5Mjk2OTk0NzQ0Mjk3NDc2MA.G3FtCu.-nV5Y-h6WQCJb2O8ZiQBMRLmhZB6ag_JQaU8MM'
 client.run(TOKEN)
